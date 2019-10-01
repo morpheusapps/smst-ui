@@ -49,6 +49,7 @@
     "start": "react-scripts start",
     "eject": "react-scripts eject",
     "build": "react-scripts build",
+    "lint": "eslint . --ext .ts --fix",
     "test": "jest --runInBand --watch",
     "test:coverage": "jest"
   },
