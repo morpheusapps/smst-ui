@@ -14,7 +14,6 @@
     "@typescript-eslint/eslint-plugin": "^1.13.0",
     "@typescript-eslint/experimental-utils": "^1.11.0",
     "@typescript-eslint/parser": "^1.13.0",
-    "concurrently": "^4.1.2",
     "eslint": "^6.1.0",
     "eslint-config-airbnb-base": "^13.1.0",
     "eslint-config-prettier": "^6.0.0",
@@ -49,9 +48,10 @@
     "redux": "^4.0.4",
     "styled-components": "^4.4.0"
   },
+  "proxy": "http://localhost:8000",
   "scripts": {
     "start": "react-scripts start",
-    "dev": "concurrently \"yarn start\"",
+    "dev": "react-scripts start",
     "eject": "react-scripts eject",
     "build": "react-scripts build",
     "lint": "eslint . --ext .ts --fix",

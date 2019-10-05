@@ -8,9 +8,12 @@ const App = (): JSX.Element => (
       <Switch>
         <Route exact path="/">
           <div style={{ marginTop: '500px' }}>
-            <Link style={{ textDecoration: 'none', color: 'white' }} to="/home">
+            <a
+              href="http://localhost:8000/api/auth/google"
+              style={{ textDecoration: 'none', color: 'white' }}
+            >
               <Button>Sign in with Google</Button>
-            </Link>
+            </a>
           </div>
         </Route>
         <Route exact path="/home">
