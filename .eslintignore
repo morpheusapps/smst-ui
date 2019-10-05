@@ -5,4 +5,4 @@ build/**
 *.rej
 src/serviceWorker.js
 webpack.config.js
-
+public/**
