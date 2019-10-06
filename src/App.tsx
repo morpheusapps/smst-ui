@@ -1,4 +1,5 @@
 import React from 'react';
+import axios from 'axios';
 import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
 import { Button } from './Button';
 
@@ -7,7 +8,7 @@ const App = (): JSX.Element => (
     <Router>
       <Switch>
         <Route exact path="/">
-          <div style={{ marginTop: '500px' }}>
+          <div>
             <a
               href="http://localhost:8000/api/auth/google"
               style={{ textDecoration: 'none', color: 'white' }}
@@ -17,7 +18,18 @@ const App = (): JSX.Element => (
           </div>
         </Route>
         <Route exact path="/home">
-          <div style={{ marginTop: '500px' }}>
+          <div>
+            <Button
+              onClick={() =>
+                axios.get(
+                  `/api/auth/protected?jwt=${new URLSearchParams(
+                    window.location.search
+                  ).get('jwt')}`
+                )
+              }
+            >
+              Protected
+            </Button>
             <Link style={{ textDecoration: 'none', color: 'white' }} to="/">
               <Button>Sign out</Button>
             </Link>
