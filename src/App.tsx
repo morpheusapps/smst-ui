@@ -28,7 +28,7 @@ const App = (): JSX.Element => (
                 )
               }
             >
-              Protected
+              JWT
             </Button>
             <Link style={{ textDecoration: 'none', color: 'white' }} to="/">
               <Button>Sign out</Button>
