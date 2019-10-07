@@ -3,6 +3,7 @@ coverage/**
 dist/**
 build/**
 *.rej
+src/serviceWorker.ts
 src/serviceWorker.js
 webpack.config.js
 public/**
