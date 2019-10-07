@@ -21,13 +21,13 @@ const App = (): JSX.Element => (
           <div>
             <Button
               onClick={() =>
-                axios.get(
-                  `/api/auth/confirm?jwt=${new URLSearchParams(
-                    window.location.search
-                  ).get('jwt')}&email=${new URLSearchParams(
-                    window.location.search
-                  ).get('email')}`
-                )
+                axios.get('/api/auth/confirm', {
+                  headers: {
+                    Authorization: `Bearer ${new URLSearchParams(
+                      window.location.search
+                    ).get('token')}`
+                  }
+                })
               }
             >
               Confirm Login
