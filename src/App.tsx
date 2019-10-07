@@ -22,13 +22,15 @@ const App = (): JSX.Element => (
             <Button
               onClick={() =>
                 axios.get(
-                  `/api/auth/protected?jwt=${new URLSearchParams(
+                  `/api/auth/confirm?jwt=${new URLSearchParams(
                     window.location.search
-                  ).get('jwt')}`
+                  ).get('jwt')}&email=${new URLSearchParams(
+                    window.location.search
+                  ).get('email')}`
                 )
               }
             >
-              JWT
+              Confirm Login
             </Button>
             <Link style={{ textDecoration: 'none', color: 'white' }} to="/">
               <Button>Sign out</Button>
