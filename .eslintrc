@@ -57,6 +57,7 @@
     "prefer-destructuring": "warn",
     "implicit-arrow-linebreak": "off",
     "operator-linebreak": "warn",
-    "function-paren-newline": "off"
+    "function-paren-newline": "off",
+    "@typescript-eslint/no-explicit-any": "off"
   }
 }

@@ -1,41 +1,23 @@
 import React from 'react';
-import axios from 'axios';
 import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
-import { Button } from './Button';
+import { LoginPage } from './components/pages/LoginPage';
+import { Button } from './components/Button';
+import { ConnectedConfirmationPage as ConfirmationPage } from './components/pages/ConfirmationPage';
 
 const App = (): JSX.Element => (
   <div style={{ display: 'flex', justifyContent: 'center' }}>
     <Router>
       <Switch>
         <Route exact path="/">
-          <div>
-            <a
-              href="http://localhost:8000/api/auth/google"
-              style={{ textDecoration: 'none', color: 'white' }}
-            >
-              <Button>Sign in with Google</Button>
-            </a>
-          </div>
+          <LoginPage />
+        </Route>
+        <Route exact path="/login/confirmation">
+          <ConfirmationPage />
         </Route>
         <Route exact path="/home">
-          <div>
-            <Button
-              onClick={(): unknown =>
-                axios.get('/api/auth/confirm', {
-                  headers: {
-                    Authorization: `Bearer ${new URLSearchParams(
-                      window.location.search
-                    ).get('token')}`
-                  }
-                })
-              }
-            >
-              Confirm Login
-            </Button>
-            <Link style={{ textDecoration: 'none', color: 'white' }} to="/">
-              <Button>Sign out</Button>
-            </Link>
-          </div>
+          <Link style={{ textDecoration: 'none', color: 'white' }} to="/">
+            <Button>Sign out</Button>
+          </Link>
         </Route>
       </Switch>
     </Router>
