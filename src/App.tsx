@@ -20,7 +20,7 @@ const App = (): JSX.Element => (
         <Route exact path="/home">
           <div>
             <Button
-              onClick={() =>
+              onClick={(): unknown =>
                 axios.get('/api/auth/confirm', {
                   headers: {
                     Authorization: `Bearer ${new URLSearchParams(
