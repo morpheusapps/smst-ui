@@ -1,6 +1,6 @@
 import React from 'react';
 import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
-import { LoginPage } from './components/pages/LoginPage';
+import { ConnectedLoginPage as LoginPage } from './components/pages/LoginPage';
 import { Button } from './components/Button';
 import { ConnectedConfirmationPage as ConfirmationPage } from './components/pages/ConfirmationPage';
 

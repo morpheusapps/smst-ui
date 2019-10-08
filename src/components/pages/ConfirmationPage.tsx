@@ -1,43 +1,52 @@
 import React, { useEffect } from 'react';
-import { withRouter, RouteComponentProps } from 'react-router-dom';
+import { withRouter, RouteComponentProps, Redirect } from 'react-router-dom';
 import qs from 'qs';
 import { Dispatch } from 'redux';
 import { connect } from 'react-redux';
-import {
-  SaveLoginTokenAction,
-  ConfirmLoginAction
-} from '../../redux/actions/auth';
+import { ConfirmLoginAction } from '../../redux/actions/auth';
+import { SemesterionStates } from '../../redux/reducers';
 
 interface PropsFromDispatch {
-  saveLoginToken: (token: string) => void;
-  confirmLogin: () => void;
+  confirmLogin: (token: string) => void;
 }
 
-type ConfirmationPageProps = PropsFromDispatch & RouteComponentProps;
+interface PropsFromStore {
+  profile?: string;
+}
+
+type ConfirmationPageProps = PropsFromDispatch &
+  PropsFromStore &
+  RouteComponentProps;
 
 export const ConfirmationPage = ({
   location,
-  saveLoginToken,
-  confirmLogin
+  confirmLogin,
+  profile
 }: ConfirmationPageProps): JSX.Element => {
   useEffect((): void => {
     const { token = '' }: { token?: string } = qs.parse(location.search, {
       ignoreQueryPrefix: true
     });
-    saveLoginToken(token);
-    confirmLogin();
+    confirmLogin(token);
   });
+
+  if (profile) {
+    return <Redirect to="/home" />;
+  }
 
   return <div />;
 };
 
+const mapStateToProps = ({ auth }: SemesterionStates): PropsFromStore => ({
+  profile: auth.profile
+});
+
 const mapDispatchToProps = (dispatch: Dispatch): PropsFromDispatch => ({
-  saveLoginToken: (token: string): SaveLoginTokenAction =>
-    dispatch(SaveLoginTokenAction(token)),
-  confirmLogin: (): ConfirmLoginAction => dispatch(ConfirmLoginAction())
+  confirmLogin: (token: string): ConfirmLoginAction =>
+    dispatch(ConfirmLoginAction(token))
 });
 
 export const ConnectedConfirmationPage = withRouter(connect(
-  undefined,
+  mapStateToProps,
   mapDispatchToProps
 )(ConfirmationPage) as any);

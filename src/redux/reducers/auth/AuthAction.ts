@@ -1,10 +1,3 @@
-import {
-  SaveLoginTokenAction,
-  ConfirmLoginAction,
-  SaveProfileAction
-} from '../../actions/auth';
+import { ConfirmLoginAction, SaveProfileAction } from '../../actions/auth';
 
-export type AuthAction =
-  | SaveLoginTokenAction
-  | ConfirmLoginAction
-  | SaveProfileAction;
+export type AuthAction = ConfirmLoginAction | SaveProfileAction;

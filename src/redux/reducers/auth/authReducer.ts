@@ -10,9 +10,6 @@ export const authReducer: Reducer<AuthState, AuthAction> = (
   action: AuthAction
 ): AuthState => {
   switch (action.type) {
-    case AuthActionTypes.SAVE_LOGIN_TOKEN: {
-      return { ...state, token: action.payload.token };
-    }
     case AuthActionTypes.SAVE_PROFILE: {
       return { ...state, profile: action.payload.profile };
     }

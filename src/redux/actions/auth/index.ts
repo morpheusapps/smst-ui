@@ -1,25 +1,30 @@
 import { Action } from 'redux';
 import { AuthActionTypes } from '../../actionTypes/AuthActionTypes';
 
-export interface SaveLoginTokenAction extends Action<AuthActionTypes> {
-  type: AuthActionTypes.SAVE_LOGIN_TOKEN;
+export interface ConfirmLoginAction extends Action<AuthActionTypes> {
+  type: AuthActionTypes.CONFIRM_LOGIN;
   payload: { token: string };
 }
 
-export const SaveLoginTokenAction = (token: string): SaveLoginTokenAction => ({
-  type: AuthActionTypes.SAVE_LOGIN_TOKEN,
+export const ConfirmLoginAction = (token: string): ConfirmLoginAction => ({
+  type: AuthActionTypes.CONFIRM_LOGIN,
   payload: { token }
 });
 
-export interface ConfirmLoginAction extends Action<AuthActionTypes> {
-  type: AuthActionTypes.CONFIRM_LOGIN;
+export interface GetSessionAction extends Action<AuthActionTypes> {
+  type: AuthActionTypes.GET_SESSION;
 }
 
-export const ConfirmLoginAction = (): ConfirmLoginAction => ({
-  type: AuthActionTypes.CONFIRM_LOGIN
-});
+export const GetSessionAction = {
+  type: AuthActionTypes.GET_SESSION
+};
 
 export interface SaveProfileAction extends Action<AuthActionTypes> {
   type: AuthActionTypes.SAVE_PROFILE;
   payload: { profile: string };
 }
+
+export const SaveProfileAction = (profile: string): SaveProfileAction => ({
+  type: AuthActionTypes.SAVE_PROFILE,
+  payload: { profile }
+});
