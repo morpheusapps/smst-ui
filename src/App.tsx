@@ -1,27 +1,10 @@
 import React from 'react';
-import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
-import { ConnectedLoginPage as LoginPage } from './components/pages/LoginPage';
-import { Button } from './components/Button';
-import { ConnectedConfirmationPage as ConfirmationPage } from './components/pages/ConfirmationPage';
+import { Provider as ReduxProvider } from 'react-redux';
+import { SemesterionApp } from './SemesterionApp';
+import { store } from './redux';
 
-const App = (): JSX.Element => (
-  <div style={{ display: 'flex', justifyContent: 'center' }}>
-    <Router>
-      <Switch>
-        <Route exact path="/">
-          <LoginPage />
-        </Route>
-        <Route exact path="/login/confirmation">
-          <ConfirmationPage />
-        </Route>
-        <Route exact path="/home">
-          <Link style={{ textDecoration: 'none', color: 'white' }} to="/">
-            <Button>Sign out</Button>
-          </Link>
-        </Route>
-      </Switch>
-    </Router>
-  </div>
+export const App = () => (
+  <ReduxProvider store={store}>
+    <SemesterionApp />
+  </ReduxProvider>
 );
-
-export default App;

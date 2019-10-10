@@ -59,5 +59,13 @@
     "operator-linebreak": "warn",
     "function-paren-newline": "off",
     "@typescript-eslint/no-explicit-any": "off"
-  }
+  },
+  "overrides": [
+    {
+      "files": ["*.saga.ts","*.tsx", "*.test.tsx", "*.test.ts"],
+      "rules": {
+        "@typescript-eslint/explicit-function-return-type": "off"
+      }
+    }
+  ]
 }

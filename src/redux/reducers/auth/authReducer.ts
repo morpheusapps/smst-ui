@@ -13,6 +13,9 @@ export const authReducer: Reducer<AuthState, AuthAction> = (
     case AuthActionTypes.SAVE_PROFILE: {
       return { ...state, profile: action.payload.profile };
     }
+    case AuthActionTypes.REMOVE_PROFILE: {
+      return { ...state, profile: undefined };
+    }
     default:
       return state;
   }
