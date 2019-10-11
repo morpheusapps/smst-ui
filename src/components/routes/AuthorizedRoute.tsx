@@ -1,7 +1,7 @@
 import React from 'react';
 import { RouteProps } from 'react-router-dom';
 import { useSelector } from 'react-redux';
-import { isLoggedSelector } from '../../redux';
+import { isLoggedSelector } from '../../selectors';
 import { ContainerProps } from '../types/ContainerProps';
 import { ProtectedRoute } from './ProtectedRoute';
 import { RoutesPaths } from '../../const/RoutesPaths';
