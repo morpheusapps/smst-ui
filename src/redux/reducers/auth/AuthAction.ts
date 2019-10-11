@@ -1,4 +1,3 @@
-import { SaveProfileAction } from '../../actions/auth/SaveProfile';
-import { RemoveProfileAction } from '../../actions/auth/RemoveProfile';
+import { SaveProfileAction, RemoveProfileAction } from '../../actions';
 
 export type AuthAction = SaveProfileAction | RemoveProfileAction;

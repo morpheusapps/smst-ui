@@ -1,5 +1,5 @@
-export { ConfirmLogin } from './ConfirmLogin';
-export { GetSession } from './GetSession';
-export { Logout } from './Logout';
-export { RemoveProfile } from './RemoveProfile';
-export { SaveProfile } from './SaveProfile';
+export * from './ConfirmLogin';
+export * from './GetSession';
+export * from './Logout';
+export * from './RemoveProfile';
+export * from './SaveProfile';

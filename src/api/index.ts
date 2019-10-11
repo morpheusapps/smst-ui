@@ -1,1 +1,1 @@
-export { ConfirmLoginApi, GetSessionApi, DestroySessionApi } from './auth';
+export * from './auth';

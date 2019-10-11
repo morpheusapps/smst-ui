@@ -1,1 +1,1 @@
-export { isLoggedSelector } from './isLoggedSelector';
+export * from './isLoggedSelector';

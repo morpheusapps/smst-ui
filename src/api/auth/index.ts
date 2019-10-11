@@ -1,3 +1,3 @@
-export { ConfirmLoginApi } from './ConfirmLoginApi';
-export { GetSessionApi } from './GetSessionApi';
-export { DestroySessionApi } from './DestroySessionApi';
+export * from './ConfirmLoginApi';
+export * from './GetSessionApi';
+export * from './DestroySessionApi';

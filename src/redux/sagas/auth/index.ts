@@ -1,3 +1,3 @@
-export { watchConfirmLoginSaga } from './confirmLogin.saga';
-export { watchGetSessionSaga, getSessionSaga } from './getSession.saga';
-export { watchLogoutSaga } from './logout.saga';
+export * from './confirmLogin.saga';
+export * from './getSession.saga';
+export * from './logout.saga';

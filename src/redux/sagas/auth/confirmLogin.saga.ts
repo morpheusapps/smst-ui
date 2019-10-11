@@ -2,8 +2,7 @@ import { call, put, takeLatest } from 'redux-saga/effects';
 import { AxiosResponse } from 'axios';
 import { ConfirmLoginApi } from '../../../api';
 import { AuthActionTypes } from '../../actionTypes';
-import { ConfirmLoginAction } from '../../actions/auth/ConfirmLogin';
-import { GetSession } from '../../actions/auth/GetSession';
+import { GetSession, ConfirmLoginAction } from '../../actions';
 
 function* confirmLoginSaga(action: ConfirmLoginAction) {
   const { status }: AxiosResponse = yield call(
