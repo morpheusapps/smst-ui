@@ -5,6 +5,6 @@ export interface LogoutAction extends Action<AuthActionTypes> {
   type: AuthActionTypes.LOGOUT;
 }
 
-export const LogoutAction = (): LogoutAction => ({
+export const Logout = (): LogoutAction => ({
   type: AuthActionTypes.LOGOUT
 });

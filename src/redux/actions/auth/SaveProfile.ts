@@ -6,7 +6,7 @@ export interface SaveProfileAction extends Action<AuthActionTypes> {
   payload: { profile: string };
 }
 
-export const SaveProfileAction = (profile: string): SaveProfileAction => ({
+export const SaveProfile = (profile: string): SaveProfileAction => ({
   type: AuthActionTypes.SAVE_PROFILE,
   payload: { profile }
 });

@@ -5,6 +5,6 @@ export interface GetSessionAction extends Action<AuthActionTypes> {
   type: AuthActionTypes.GET_SESSION;
 }
 
-export const GetSessionAction = (): GetSessionAction => ({
+export const GetSession = (): GetSessionAction => ({
   type: AuthActionTypes.GET_SESSION
 });

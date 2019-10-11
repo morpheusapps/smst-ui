@@ -5,6 +5,6 @@ export interface RemoveProfileAction extends Action<AuthActionTypes> {
   type: AuthActionTypes.REMOVE_PROFILE;
 }
 
-export const RemoveProfileAction = (): RemoveProfileAction => ({
+export const RemoveProfile = (): RemoveProfileAction => ({
   type: AuthActionTypes.REMOVE_PROFILE
 });

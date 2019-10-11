@@ -2,12 +2,12 @@ import React, { useEffect, useCallback } from 'react';
 import { useLocation } from 'react-router-dom';
 import qs from 'qs';
 import { useDispatch } from 'react-redux';
-import { ConfirmLoginAction } from '../../redux/actions/auth/ConfirmLogin';
+import { ConfirmLogin } from '../../redux/actions/auth/ConfirmLogin';
 
 export const ConfirmationPage = () => {
   const dispatch = useDispatch();
   const confirmLogin = useCallback(
-    (token: string) => dispatch(ConfirmLoginAction(token)),
+    (token: string) => dispatch(ConfirmLogin(token)),
     [dispatch]
   );
 

@@ -6,7 +6,7 @@ export interface ConfirmLoginAction extends Action<AuthActionTypes> {
   payload: { token: string };
 }
 
-export const ConfirmLoginAction = (token: string): ConfirmLoginAction => ({
+export const ConfirmLogin = (token: string): ConfirmLoginAction => ({
   type: AuthActionTypes.CONFIRM_LOGIN,
   payload: { token }
 });
