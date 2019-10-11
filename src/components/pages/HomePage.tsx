@@ -1,8 +1,7 @@
 import React, { useCallback } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { SemesterionStates } from '../../redux/reducers';
+import { SemesterionStates, Logout } from '../../redux';
 import { Button } from '../Button';
-import { Logout } from '../../redux/actions/auth/Logout';
 
 export const HomePage = () => {
   const email = useSelector(({ auth }: SemesterionStates) => auth.profile);

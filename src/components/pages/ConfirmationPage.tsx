@@ -2,7 +2,7 @@ import React, { useEffect, useCallback } from 'react';
 import { useLocation } from 'react-router-dom';
 import qs from 'qs';
 import { useDispatch } from 'react-redux';
-import { ConfirmLogin } from '../../redux/actions/auth/ConfirmLogin';
+import { ConfirmLogin } from '../../redux';
 
 export const ConfirmationPage = () => {
   const dispatch = useDispatch();

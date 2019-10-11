@@ -3,7 +3,7 @@ import { AxiosResponse } from 'axios';
 import { ConfirmLoginApi } from '../../../api';
 import { AuthActionTypes } from '../../actionTypes';
 import { ConfirmLoginAction } from '../../actions/auth/ConfirmLogin';
-import { GetSessionAction } from '../../actions/auth/GetSession';
+import { GetSession } from '../../actions/auth/GetSession';
 
 function* confirmLoginSaga(action: ConfirmLoginAction) {
   const { status }: AxiosResponse = yield call(
@@ -11,7 +11,7 @@ function* confirmLoginSaga(action: ConfirmLoginAction) {
     action.payload.token
   );
   if (status === 200) {
-    yield put(GetSessionAction());
+    yield put(GetSession());
   }
 }
 

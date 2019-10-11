@@ -1,12 +1,12 @@
 import { call, put, takeLatest } from 'redux-saga/effects';
 import { DestroySessionApi } from '../../../api';
 import { AuthActionTypes } from '../../actionTypes';
-import { RemoveProfileAction } from '../../actions/auth/RemoveProfile';
+import { RemoveProfile } from '../../actions';
 
 function* destroySessionSaga() {
   try {
     yield call(DestroySessionApi);
-    yield put(RemoveProfileAction());
+    yield put(RemoveProfile());
   } catch (e) {
     // dont care
   }
