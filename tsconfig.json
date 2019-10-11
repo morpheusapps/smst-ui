@@ -10,10 +10,8 @@
     "removeComments": true,
     "outDir": "build",
     "target": "es6",
-    "lib": [
-      "es2015"
-    ],
-    "jsx": "preserve",
+    "lib": ["es2015"],
+    "jsx": "react",
     "allowJs": true,
     "skipLibCheck": true,
     "allowSyntheticDefaultImports": true,
@@ -22,7 +20,5 @@
     "isolatedModules": true,
     "noEmit": true
   },
-  "include": [
-    "src"
-  ]
+  "include": ["src", "test-utils/enzymeSetup.ts"]
 }
