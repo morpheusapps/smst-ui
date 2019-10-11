@@ -4,21 +4,21 @@ import { ContainerProps } from '../types/ContainerProps';
 
 type ProtectedRouteProps = RouteProps &
   ContainerProps & {
-    isAuthorized: boolean;
-    unAuthorizedRedirectPath: string;
+    isAllowed: boolean;
+    failurePath: string;
   };
 
 export const ProtectedRoute = ({
-  isAuthorized,
-  unAuthorizedRedirectPath,
+  isAllowed,
+  failurePath,
   children,
   ...routeProps
 }: ProtectedRouteProps) => (
   <>
-    {isAuthorized ? (
+    {isAllowed ? (
       <Route {...routeProps}>{children}</Route>
     ) : (
-      <Redirect to={unAuthorizedRedirectPath} />
+      <Redirect to={failurePath} />
     )}
   </>
 );

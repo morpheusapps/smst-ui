@@ -1,20 +1,18 @@
-import React, { useEffect } from 'react';
-import { withRouter, RouteComponentProps } from 'react-router-dom';
+import React, { useEffect, useCallback } from 'react';
+import { useLocation } from 'react-router-dom';
 import qs from 'qs';
-import { Dispatch } from 'redux';
-import { connect } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { ConfirmLoginAction } from '../../redux/actions/auth/ConfirmLogin';
 
-interface PropsFromDispatch {
-  confirmLogin: (token: string) => void;
-}
+export const ConfirmationPage = () => {
+  const dispatch = useDispatch();
+  const confirmLogin = useCallback(
+    (token: string) => dispatch(ConfirmLoginAction(token)),
+    [dispatch]
+  );
 
-type ConfirmationPageProps = PropsFromDispatch & RouteComponentProps;
+  const location = useLocation();
 
-export const ConfirmationPage = ({
-  location,
-  confirmLogin
-}: ConfirmationPageProps) => {
   useEffect((): void => {
     const { token }: { token?: string } = qs.parse(location.search, {
       ignoreQueryPrefix: true
@@ -24,14 +22,3 @@ export const ConfirmationPage = ({
 
   return <>logging in... </>;
 };
-
-const mapDispatchToProps = (dispatch: Dispatch): PropsFromDispatch => ({
-  confirmLogin: (token: string) => dispatch(ConfirmLoginAction(token))
-});
-
-export const ConnectedConfirmationPage = withRouter(
-  connect(
-    undefined,
-    mapDispatchToProps
-  )(ConfirmationPage)
-);
