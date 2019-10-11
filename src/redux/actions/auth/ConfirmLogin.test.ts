@@ -1,6 +1,6 @@
 import { ConfirmLogin } from './ConfirmLogin';
-import { Fakes } from '../../../../test-utils/Fakes';
 import { AuthActionTypes } from '../../actionTypes/AuthActionTypes';
+import { Fakes } from '../../../../test-utils/Fakes';
 
 test('ConfirmLogin', () => {
   const token = Fakes.string();
