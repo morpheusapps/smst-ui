@@ -1,16 +1,15 @@
 import { call, put, takeLatest } from 'redux-saga/effects';
-import { AxiosResponse } from 'axios';
 import { ConfirmLoginApi } from '../../../api';
 import { AuthActionTypes } from '../../actionTypes';
 import { GetSession, ConfirmLoginAction } from '../../actions';
 
-function* confirmLoginSaga(action: ConfirmLoginAction) {
-  const { status }: AxiosResponse = yield call(
-    ConfirmLoginApi,
-    action.payload.token
-  );
-  if (status === 200) {
+export function* confirmLoginSaga(action: ConfirmLoginAction) {
+  try {
+    yield call(ConfirmLoginApi, action.payload.token);
+
     yield put(GetSession());
+  } catch (e) {
+    // dont care
   }
 }
 

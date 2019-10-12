@@ -1,4 +1,6 @@
-import axios, { AxiosResponse } from 'axios';
+import axios from 'axios';
+import { ApiCall, ApiCallResponse } from '../ApiCall';
 
-export const GetSessionApi = (): Promise<AxiosResponse<{ profile: string }>> =>
-  axios.get('/api/auth/session');
+export const GetSessionApi = (): Promise<
+  ApiCallResponse<{ profile: string }>
+> => ApiCall(axios.get('/api/auth/session'));

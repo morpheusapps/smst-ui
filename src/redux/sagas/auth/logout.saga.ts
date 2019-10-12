@@ -3,12 +3,13 @@ import { DestroySessionApi } from '../../../api';
 import { AuthActionTypes } from '../../actionTypes';
 import { RemoveProfile } from '../../actions';
 
-function* destroySessionSaga() {
+export function* destroySessionSaga() {
   try {
     yield call(DestroySessionApi);
-    yield put(RemoveProfile());
   } catch (e) {
     // dont care
+  } finally {
+    yield put(RemoveProfile());
   }
 }
 

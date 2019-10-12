@@ -1,15 +1,18 @@
 import { call, put, takeLatest } from 'redux-saga/effects';
-import { AxiosResponse } from 'axios';
-import { GetSessionApi } from '../../../api';
+import { GetSessionApi, ApiCallResponse } from '../../../api';
 import { AuthActionTypes } from '../../actionTypes';
-import { SaveProfile } from '../../actions';
+import { SaveProfile, RemoveProfile } from '../../actions';
 
 export function* getSessionSaga() {
-  const { status, data }: AxiosResponse<{ profile: string }> = yield call(
-    GetSessionApi
-  );
-  if (status === 200) {
-    yield put(SaveProfile(data.profile));
+  try {
+    const {
+      data: { profile }
+    }: ApiCallResponse<{ profile: string }> = yield call(GetSessionApi);
+
+    yield put(SaveProfile(profile));
+  } catch (e) {
+    //console.log(e);
+    yield put(RemoveProfile());
   }
 }
 
