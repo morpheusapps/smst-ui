@@ -5,30 +5,18 @@ import { FakeApiCallResponse } from '../../../../test-utils/FakeApiCallResponse'
 import { SaveProfile, RemoveProfile } from '../../actions';
 import { Fakes } from '../../../../test-utils/Fakes';
 
-jest.mock('../../../api');
-
 describe('getSessionSaga', () => {
-  let mockedAPI: jest.Mocked<typeof API>;
-
-  const setGetSessionApiResponse = (profile: string) => {
-    mockedAPI.GetSessionApi.mockImplementation(() =>
-      FakeApiCallResponse({ data: { profile } })
-    );
-  };
-
   let profile: string;
 
   beforeEach(() => {
-    mockedAPI = API as jest.Mocked<typeof API>;
     profile = Fakes.string();
-    setGetSessionApiResponse(profile);
   });
 
   test('success', () => {
     testSaga(getSessionSaga)
       .next()
       .call(API.GetSessionApi)
-      .next()
+      .next(FakeApiCallResponse({ data: { profile } }))
       .put(SaveProfile(profile))
       .next()
       .isDone();

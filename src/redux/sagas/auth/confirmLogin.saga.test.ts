@@ -8,26 +8,17 @@ import { Fakes } from '../../../../test-utils/Fakes';
 jest.mock('../../../api');
 
 describe('confirmLoginSaga', () => {
-  let mockedAPI: jest.Mocked<typeof API>;
   let token: string;
 
-  const setConfirmLoginApiResponse = () => {
-    mockedAPI.ConfirmLoginApi.mockImplementation(() =>
-      FakeApiCallResponse({ data: {} })
-    );
-  };
-
   beforeEach(() => {
-    mockedAPI = API as jest.Mocked<typeof API>;
     token = Fakes.string();
-    setConfirmLoginApiResponse();
   });
 
   test('success', () => {
     testSaga(confirmLoginSaga, ConfirmLogin(token))
       .next()
       .call(API.ConfirmLoginApi, token)
-      .next()
+      .next(FakeApiCallResponse())
       .put(GetSession())
       .next()
       .isDone();

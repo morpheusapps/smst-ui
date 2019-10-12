@@ -11,7 +11,6 @@ export function* getSessionSaga() {
 
     yield put(SaveProfile(profile));
   } catch (e) {
-    //console.log(e);
     yield put(RemoveProfile());
   }
 }

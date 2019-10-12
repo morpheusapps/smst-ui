@@ -1,15 +1,16 @@
 import { ApiCallResponse, HttpStatus } from '../src/api';
 
-interface FakeApiCallResponseProps<T = any> {
+interface FakeApiCallResponseProps {
   status?: HttpStatus;
-  data: T;
+  data?: any;
 }
 
-export async function FakeApiCallResponse<T>(
-  props: FakeApiCallResponseProps<T>
-): Promise<ApiCallResponse<T>> {
+export function FakeApiCallResponse(
+  props?: FakeApiCallResponseProps
+): ApiCallResponse {
   return {
     status: HttpStatus.OK,
+    data: {},
     ...props
   };
 }
