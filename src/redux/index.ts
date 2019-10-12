@@ -2,5 +2,5 @@ import { SemesterionStates as ImprotedSemesterionStates } from './reducers';
 
 export type SemesterionStates = ImprotedSemesterionStates;
 
-export * from './store';
+export { store } from './store';
 export * from './actions';
