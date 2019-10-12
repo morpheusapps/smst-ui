@@ -1,12 +1,12 @@
 import { testSaga } from 'redux-saga-test-plan';
-import { destroySessionSaga } from './logout.saga';
+import { logoutSaga } from './logout.saga';
 import * as API from '../../../api';
 import { FakeApiCallResponse } from '../../../../test-utils/FakeApiCallResponse';
 import { RemoveProfile } from '../../actions';
 
-describe('destroySessionSaga', () => {
+describe('logoutSaga', () => {
   test('success', () => {
-    testSaga(destroySessionSaga)
+    testSaga(logoutSaga)
       .next()
       .call(API.DestroySessionApi)
       .next(FakeApiCallResponse())
@@ -16,7 +16,7 @@ describe('destroySessionSaga', () => {
   });
 
   test('failure', () => {
-    testSaga(destroySessionSaga)
+    testSaga(logoutSaga)
       .next()
       .call(API.DestroySessionApi)
       .throw(new Error())

@@ -3,7 +3,7 @@ import { DestroySessionApi } from '../../../api';
 import { AuthActionTypes } from '../../actionTypes';
 import { RemoveProfile } from '../../actions';
 
-export function* destroySessionSaga() {
+export function* logoutSaga() {
   try {
     yield call(DestroySessionApi);
   } catch (e) {
@@ -14,5 +14,5 @@ export function* destroySessionSaga() {
 }
 
 export function* watchLogoutSaga() {
-  yield takeLatest(AuthActionTypes.LOGOUT, destroySessionSaga);
+  yield takeLatest(AuthActionTypes.LOGOUT, logoutSaga);
 }
