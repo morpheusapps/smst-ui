@@ -3,7 +3,7 @@ import { AuthState } from './AuthState';
 import { AuthActionTypes } from '../../actionTypes';
 import { AuthAction } from './AuthAction';
 
-const defaultState: AuthState = {};
+const defaultState = {};
 
 export const authReducer: Reducer<AuthState, AuthAction> = (
   state = defaultState,
