@@ -6,6 +6,7 @@ import * as API from '../../api';
 import * as Actions from '../actions';
 import { Fakes } from '../../../test-utils/Fakes';
 import { FakeApiCallResponse } from '../../../test-utils/FakeApiCallResponse';
+import { UserErrorMessages } from '../../const/UserErrorMessages';
 
 jest.mock('../../api');
 
@@ -33,7 +34,7 @@ describe('rootSaga integration tests', () => {
         .provide([
           [matchers.call.fn(API.GetSessionApi), throwError(new Error())]
         ])
-        .put(Actions.RemoveProfile())
+        .put(Actions.ThrowGlobalError(UserErrorMessages.AUTH.GET_SESSION_ERROR))
         .silentRun());
   });
 
@@ -64,6 +65,7 @@ describe('rootSaga integration tests', () => {
           [matchers.call.fn(API.ConfirmLoginApi), throwError(new Error())]
         ])
         .not.put(Actions.GetSession())
+        .put(Actions.ConfirmLoginFailed())
         .dispatch(Actions.ConfirmLogin(token))
         .silentRun());
 
@@ -73,7 +75,7 @@ describe('rootSaga integration tests', () => {
           [matchers.call.fn(API.GetSessionApi), throwError(new Error())]
         ])
         .put(Actions.GetSession())
-        .put(Actions.RemoveProfile())
+        .put(Actions.ThrowGlobalError(UserErrorMessages.AUTH.GET_SESSION_ERROR))
         .dispatch(Actions.ConfirmLogin(token))
         .silentRun());
   });

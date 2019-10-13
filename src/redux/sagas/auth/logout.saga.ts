@@ -2,7 +2,7 @@ import { call, put, takeLatest } from 'redux-saga/effects';
 import { DestroySessionApi } from '../../../api';
 import { AuthActionTypes } from '../../actionTypes';
 import { RemoveProfile, ThrowGlobalError } from '../../actions';
-import { UserErrors } from '../../../const/UserErrors';
+import { UserErrorMessages } from '../../../const/UserErrorMessages';
 
 export function* logoutSaga() {
   try {
@@ -10,7 +10,7 @@ export function* logoutSaga() {
 
     yield put(RemoveProfile());
   } catch (e) {
-    yield put(ThrowGlobalError(UserErrors.AUTH.LOGOUT_ERROR));
+    yield put(ThrowGlobalError(UserErrorMessages.AUTH.LOGOUT_ERROR));
   }
 }
 

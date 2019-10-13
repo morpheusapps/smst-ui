@@ -16,7 +16,7 @@ export const AppRoutes = () => (
       <LoginRoute exact path={RoutesPaths.LOGIN}>
         <LoginPage />
       </LoginRoute>
-      <LoginRoute exact path={RoutesPaths.LOGIN_CONFIRMATION}>
+      <LoginRoute exact path={RoutesPaths.LOGIN_CONFIRM}>
         <ConfirmationPage />
       </LoginRoute>
     </Switch>

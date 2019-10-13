@@ -2,8 +2,9 @@ import { testSaga } from 'redux-saga-test-plan';
 import { getSessionSaga } from './getSession.saga';
 import * as API from '../../../api';
 import { FakeApiCallResponse } from '../../../../test-utils/FakeApiCallResponse';
-import { SaveProfile, RemoveProfile } from '../../actions';
+import { SaveProfile, ThrowGlobalError } from '../../actions';
 import { Fakes } from '../../../../test-utils/Fakes';
+import { UserErrorMessages } from '../../../const/UserErrorMessages';
 
 describe('getSessionSaga', () => {
   let profile: string | undefined;
@@ -27,7 +28,7 @@ describe('getSessionSaga', () => {
       .next()
       .call(API.GetSessionApi)
       .throw(new Error())
-      .put(RemoveProfile())
+      .put(ThrowGlobalError(UserErrorMessages.AUTH.GET_SESSION_ERROR))
       .next()
       .isDone();
   });

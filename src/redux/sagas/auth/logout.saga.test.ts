@@ -3,7 +3,7 @@ import { logoutSaga } from './logout.saga';
 import * as API from '../../../api';
 import { FakeApiCallResponse } from '../../../../test-utils/FakeApiCallResponse';
 import { RemoveProfile, ThrowGlobalError } from '../../actions';
-import { UserErrors } from '../../../const/UserErrors';
+import { UserErrorMessages } from '../../../const/UserErrorMessages';
 
 describe('logoutSaga', () => {
   test('success', () => {
@@ -21,7 +21,7 @@ describe('logoutSaga', () => {
       .next()
       .call(API.DestroySessionApi)
       .throw(new Error())
-      .put(ThrowGlobalError(UserErrors.AUTH.LOGOUT_ERROR))
+      .put(ThrowGlobalError(UserErrorMessages.AUTH.LOGOUT_ERROR))
       .next()
       .isDone();
   });

@@ -12,6 +12,9 @@ export const authReducer: Reducer<AuthState, AuthAction> = (
   action: AuthAction
 ): AuthState => {
   switch (action.type) {
+    case AuthActionTypes.CONFIRM_LOGIN: {
+      return { ...state, loginError: undefined };
+    }
     case AuthActionTypes.SAVE_PROFILE: {
       return { ...state, profile: action.payload.profile };
     }
