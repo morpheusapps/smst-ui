@@ -12,7 +12,7 @@ describe('authReducer', () => {
 
     const state = authReducer(initialState, action);
 
-    expect(state).toEqual({ profile });
+    expect(state).toEqual({ ...initialState, profile });
   });
   test('REMOVE_PROFILE', () => {
     const initialState = FakeAuthState();
@@ -21,6 +21,6 @@ describe('authReducer', () => {
 
     const state = authReducer(initialState, action);
 
-    expect(state).toEqual({ profile: undefined });
+    expect(state).toEqual({ ...initialState, profile: undefined });
   });
 });
