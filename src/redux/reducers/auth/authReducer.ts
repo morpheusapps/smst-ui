@@ -24,7 +24,6 @@ export const authReducer: Reducer<AuthState, AuthAction> = (
     case AuthActionTypes.REMOVE_PROFILE: {
       return { ...state, profile: undefined };
     }
-    case AuthActionTypes.GET_SESSION:
     case AuthActionTypes.LOGOUT:
     case AuthActionTypes.THROW_LOGOUT_ERROR:
     case AuthActionTypes.THROW_GET_SESSION_ERROR:
