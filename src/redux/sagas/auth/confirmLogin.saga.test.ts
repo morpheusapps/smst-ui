@@ -2,7 +2,11 @@ import { testSaga } from 'redux-saga-test-plan';
 import { confirmLoginSaga } from './confirmLogin.saga';
 import * as API from '../../../api';
 import { FakeApiCallResponse } from '../../../../test-utils/FakeApiCallResponse';
-import { ConfirmLogin, GetSession, ConfirmLoginFailed } from '../../actions';
+import {
+  ConfirmLogin,
+  GetSession,
+  ThrowConfirmLoginError
+} from '../../actions';
 import { Fakes } from '../../../../test-utils/Fakes';
 
 jest.mock('../../../api');
@@ -29,7 +33,7 @@ describe('confirmLoginSaga', () => {
       .next()
       .call(API.ConfirmLoginApi, token)
       .throw(new Error())
-      .put(ConfirmLoginFailed())
+      .put(ThrowConfirmLoginError())
       .next()
       .isDone();
   });

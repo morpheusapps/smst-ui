@@ -4,7 +4,7 @@ import { AuthActionTypes } from '../../actionTypes';
 import {
   GetSession,
   ConfirmLoginAction,
-  ConfirmLoginFailed
+  ThrowConfirmLoginError
 } from '../../actions';
 
 export function* confirmLoginSaga(action: ConfirmLoginAction) {
@@ -13,7 +13,7 @@ export function* confirmLoginSaga(action: ConfirmLoginAction) {
 
     yield put(GetSession());
   } catch (e) {
-    yield put(ConfirmLoginFailed());
+    yield put(ThrowConfirmLoginError());
   }
 }
 

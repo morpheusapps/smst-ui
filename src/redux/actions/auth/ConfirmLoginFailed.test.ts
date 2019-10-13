@@ -1,8 +1,8 @@
-import { ConfirmLoginFailed } from './ConfirmLoginFailed';
+import { ThrowConfirmLoginError } from './ThrowConfirmLoginError';
 import { AuthActionTypes } from '../../actionTypes';
 
 test('ConfirmLogin', () => {
-  const confirmLoginAction = ConfirmLoginFailed();
+  const confirmLoginAction = ThrowConfirmLoginError();
 
   expect(confirmLoginAction).toEqual({
     type: AuthActionTypes.FAIL_CONFIRM_LOGIN

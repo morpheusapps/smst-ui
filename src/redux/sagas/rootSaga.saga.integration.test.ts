@@ -65,7 +65,7 @@ describe('rootSaga integration tests', () => {
           [matchers.call.fn(API.ConfirmLoginApi), throwError(new Error())]
         ])
         .not.put(Actions.GetSession())
-        .put(Actions.ConfirmLoginFailed())
+        .put(Actions.ThrowConfirmLoginError())
         .dispatch(Actions.ConfirmLogin(token))
         .silentRun());
 

@@ -4,12 +4,12 @@ import {
   LogoutAction,
   SaveProfileAction,
   RemoveProfileAction,
-  ConfirmLoginFailedAction
+  ThrowConfirmLoginErrorAction
 } from '../../actions';
 
 export type AuthAction =
   | ConfirmLoginAction
-  | ConfirmLoginFailedAction
+  | ThrowConfirmLoginErrorAction
   | GetSessionAction
   | LogoutAction
   | SaveProfileAction

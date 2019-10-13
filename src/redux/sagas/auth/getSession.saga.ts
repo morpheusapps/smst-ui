@@ -1,8 +1,7 @@
 import { call, put, takeLatest } from 'redux-saga/effects';
 import { GetSessionApi, ApiCallResponse } from '../../../api';
 import { AuthActionTypes } from '../../actionTypes';
-import { SaveProfile, ThrowGlobalError } from '../../actions';
-import { UserErrorMessages } from '../../../const/UserErrorMessages';
+import { SaveProfile, ThrowGetSessionError } from '../../actions';
 
 export function* getSessionSaga() {
   try {
@@ -12,7 +11,7 @@ export function* getSessionSaga() {
 
     yield put(SaveProfile(profile));
   } catch (e) {
-    yield put(ThrowGlobalError(UserErrorMessages.AUTH.GET_SESSION_ERROR));
+    yield put(ThrowGetSessionError());
   }
 }
 
