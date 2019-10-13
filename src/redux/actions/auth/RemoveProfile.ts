@@ -1,5 +1,5 @@
 import { Action } from 'redux';
-import { AuthActionTypes } from '../../actionTypes/AuthActionTypes';
+import { AuthActionTypes } from '../../actionTypes';
 
 export interface RemoveProfileAction extends Action<AuthActionTypes> {
   type: AuthActionTypes.REMOVE_PROFILE;

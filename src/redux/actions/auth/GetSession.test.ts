@@ -1,5 +1,5 @@
 import { GetSession } from './GetSession';
-import { AuthActionTypes } from '../../actionTypes/AuthActionTypes';
+import { AuthActionTypes } from '../../actionTypes';
 
 test('GetSession', () => {
   const getSessionAction = GetSession();

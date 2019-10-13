@@ -1,15 +1,16 @@
 import { call, put, takeLatest } from 'redux-saga/effects';
 import { DestroySessionApi } from '../../../api';
 import { AuthActionTypes } from '../../actionTypes';
-import { RemoveProfile } from '../../actions';
+import { RemoveProfile, ThrowGlobalError } from '../../actions';
+import { UserErrors } from '../../../const/UserErrors';
 
 export function* logoutSaga() {
   try {
     yield call(DestroySessionApi);
-  } catch (e) {
-    // dont care
-  } finally {
+
     yield put(RemoveProfile());
+  } catch (e) {
+    yield put(ThrowGlobalError(UserErrors.AUTH.LOGOUT_ERROR));
   }
 }
 

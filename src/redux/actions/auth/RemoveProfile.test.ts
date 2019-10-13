@@ -1,5 +1,5 @@
 import { RemoveProfile } from './RemoveProfile';
-import { AuthActionTypes } from '../../actionTypes/AuthActionTypes';
+import { AuthActionTypes } from '../../actionTypes';
 
 test('RemoveProfile', () => {
   const removeProfileAction = RemoveProfile();

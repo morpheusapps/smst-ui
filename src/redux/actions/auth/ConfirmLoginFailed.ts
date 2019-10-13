@@ -1,5 +1,5 @@
 import { Action } from 'redux';
-import { AuthActionTypes } from '../../actionTypes/AuthActionTypes';
+import { AuthActionTypes } from '../../actionTypes';
 
 export interface ConfirmLoginFailedAction extends Action<AuthActionTypes> {
   type: AuthActionTypes.FAIL_CONFIRM_LOGIN;

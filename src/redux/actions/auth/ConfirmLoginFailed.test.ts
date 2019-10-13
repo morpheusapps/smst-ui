@@ -1,5 +1,5 @@
 import { ConfirmLoginFailed } from './ConfirmLoginFailed';
-import { AuthActionTypes } from '../../actionTypes/AuthActionTypes';
+import { AuthActionTypes } from '../../actionTypes';
 
 test('ConfirmLogin', () => {
   const confirmLoginAction = ConfirmLoginFailed();

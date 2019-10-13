@@ -101,7 +101,7 @@ describe('rootSaga integration tests', () => {
           ],
           [matchers.call.fn(API.DestroySessionApi), throwError(new Error())]
         ])
-        .put(Actions.RemoveProfile())
+        .not.put(Actions.RemoveProfile())
         .dispatch(Actions.Logout())
         .silentRun());
   });

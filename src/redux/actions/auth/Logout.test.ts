@@ -1,5 +1,5 @@
 import { Logout } from './Logout';
-import { AuthActionTypes } from '../../actionTypes/AuthActionTypes';
+import { AuthActionTypes } from '../../actionTypes';
 
 test('Logout', () => {
   const logoutAction = Logout();

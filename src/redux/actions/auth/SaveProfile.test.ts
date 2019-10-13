@@ -1,5 +1,5 @@
 import { SaveProfile } from './SaveProfile';
-import { AuthActionTypes } from '../../actionTypes/AuthActionTypes';
+import { AuthActionTypes } from '../../actionTypes';
 import { Fakes } from '../../../../test-utils/Fakes';
 
 test('SaveProfile', () => {
