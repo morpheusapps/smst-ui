@@ -1,7 +1,11 @@
 import { call, put, takeLatest } from 'redux-saga/effects';
 import { ConfirmLoginApi } from '../../../api';
 import { AuthActionTypes } from '../../actionTypes';
-import { GetSession, ConfirmLoginAction } from '../../actions';
+import {
+  GetSession,
+  ConfirmLoginAction,
+  ConfirmLoginFailed
+} from '../../actions';
 
 export function* confirmLoginSaga(action: ConfirmLoginAction) {
   try {
@@ -9,7 +13,7 @@ export function* confirmLoginSaga(action: ConfirmLoginAction) {
 
     yield put(GetSession());
   } catch (e) {
-    // dont care
+    yield put(ConfirmLoginFailed());
   }
 }
 

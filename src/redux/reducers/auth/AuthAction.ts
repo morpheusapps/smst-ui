@@ -3,11 +3,13 @@ import {
   GetSessionAction,
   LogoutAction,
   SaveProfileAction,
-  RemoveProfileAction
+  RemoveProfileAction,
+  ConfirmLoginFailedAction
 } from '../../actions';
 
 export type AuthAction =
   | ConfirmLoginAction
+  | ConfirmLoginFailedAction
   | GetSessionAction
   | LogoutAction
   | SaveProfileAction
