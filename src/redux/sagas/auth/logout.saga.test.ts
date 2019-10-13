@@ -2,8 +2,7 @@ import { testSaga } from 'redux-saga-test-plan';
 import { logoutSaga } from './logout.saga';
 import * as API from '../../../api';
 import { FakeApiCallResponse } from '../../../../test-utils/FakeApiCallResponse';
-import { RemoveProfile, ThrowGlobalError } from '../../actions';
-import { UserErrorMessages } from '../../../const/UserErrorMessages';
+import { RemoveProfile, ThrowLogoutError } from '../../actions';
 
 describe('logoutSaga', () => {
   test('success', () => {
@@ -21,7 +20,7 @@ describe('logoutSaga', () => {
       .next()
       .call(API.DestroySessionApi)
       .throw(new Error())
-      .put(ThrowGlobalError(UserErrorMessages.AUTH.LOGOUT_ERROR))
+      .put(ThrowLogoutError())
       .next()
       .isDone();
   });

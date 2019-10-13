@@ -1,2 +1,2 @@
 export * from './auth';
-export { ThrowGlobalError } from './ThrowGlobalError';
+export * from './general';

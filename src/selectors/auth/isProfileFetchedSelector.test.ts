@@ -1,6 +1,6 @@
 import { isProfileFetchedSelector } from './isProfileFetchedSelector';
-import { FakeSemesterionStates } from '../../../test-utils/FakeSemesterionStates';
-import { FakeAuthState } from '../../../test-utils/FakeAuthState';
+import { FakeSemesterionStates } from '../../../test-utils/FakeState/FakeSemesterionStates';
+import { FakeAuthState } from '../../../test-utils/FakeState/FakeAuthState';
 import { Fakes } from '../../../test-utils/Fakes';
 
 describe('isLoggedSelector', () => {

@@ -1,7 +1,14 @@
 import { authReducer } from './authReducer';
-import { FakeAuthState } from '../../../../test-utils/FakeAuthState';
+import { FakeAuthState } from '../../../../test-utils/FakeState/FakeAuthState';
 import { Fakes } from '../../../../test-utils/Fakes';
-import { SaveProfile, RemoveProfile, ConfirmLogin } from '../../actions';
+import {
+  SaveProfile,
+  RemoveProfile,
+  ConfirmLogin,
+  ThrowConfirmLoginError,
+  GetSession
+} from '../../actions';
+import { AuthAction } from './AuthAction';
 
 describe('authReducer', () => {
   test('CONFIRM_LOGIN', () => {
@@ -13,6 +20,20 @@ describe('authReducer', () => {
 
     expect(state).toEqual({ ...initialState, loginError: undefined });
   });
+
+  test('THROW_CONFIRM_LOGIN_ERROR', () => {
+    const initialState = FakeAuthState();
+
+    const action = ThrowConfirmLoginError();
+
+    const state = authReducer(initialState, action);
+
+    expect(state).toEqual({
+      ...initialState,
+      loginError: action.payload.loginError
+    });
+  });
+
   test('SAVE_PROFILE', () => {
     const initialState = FakeAuthState();
 
@@ -23,6 +44,7 @@ describe('authReducer', () => {
 
     expect(state).toEqual({ ...initialState, profile });
   });
+
   test('REMOVE_PROFILE', () => {
     const initialState = FakeAuthState();
 
@@ -31,5 +53,20 @@ describe('authReducer', () => {
     const state = authReducer(initialState, action);
 
     expect(state).toEqual({ ...initialState, profile: undefined });
+  });
+
+  describe('default', () => {
+    const defaultAssertion = (action: AuthAction) => {
+      const initialState = FakeAuthState();
+
+      const state = authReducer(initialState, action);
+
+      expect(state).toEqual(initialState);
+    };
+
+    test('GET_SESSION', () => defaultAssertion(GetSession()));
+    test('LOGOUT', () => defaultAssertion(GetSession()));
+    test('THROW_LOGOUT_ERROR', () => defaultAssertion(GetSession()));
+    test('THROW_GET_SESSION_ERROR', () => defaultAssertion(GetSession()));
   });
 });

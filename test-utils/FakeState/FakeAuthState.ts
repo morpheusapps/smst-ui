@@ -1,8 +1,8 @@
-import { Fakes } from './Fakes';
-import { AuthState } from '../src/redux/reducers/auth/AuthState';
-import { Sample } from './Sample';
+import { AuthState } from '../../src/redux/reducers/auth/AuthState';
+import { Fakes } from '../Fakes';
+import { Sample } from '../Sample';
 
-interface FakeAuthStateProps {
+export interface FakeAuthStateProps {
   profile?: string | null;
   loginError?: string;
 }
