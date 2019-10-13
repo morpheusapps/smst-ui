@@ -3,7 +3,7 @@ import { FakeAuthState } from './FakeAuthState';
 
 interface FakeSemesterionStatesProps {
   auth?: {
-    profile?: string;
+    profile?: string | null;
   };
 }
 

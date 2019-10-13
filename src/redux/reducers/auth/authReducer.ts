@@ -3,7 +3,9 @@ import { AuthState } from './AuthState';
 import { AuthActionTypes } from '../../actionTypes';
 import { AuthAction } from './AuthAction';
 
-const defaultState = {};
+const defaultState = {
+  profile: null
+};
 
 export const authReducer: Reducer<AuthState, AuthAction> = (
   state = defaultState,
