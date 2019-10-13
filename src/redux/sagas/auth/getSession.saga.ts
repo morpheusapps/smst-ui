@@ -7,7 +7,7 @@ export function* getSessionSaga() {
   try {
     const {
       data: { profile }
-    }: ApiCallResponse<{ profile: string }> = yield call(GetSessionApi);
+    }: ApiCallResponse<{ profile?: string }> = yield call(GetSessionApi);
 
     yield put(SaveProfile(profile));
   } catch (e) {

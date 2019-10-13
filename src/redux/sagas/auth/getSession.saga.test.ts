@@ -6,10 +6,10 @@ import { SaveProfile, RemoveProfile } from '../../actions';
 import { Fakes } from '../../../../test-utils/Fakes';
 
 describe('getSessionSaga', () => {
-  let profile: string;
+  let profile: string | undefined;
 
   beforeEach(() => {
-    profile = Fakes.string();
+    profile = Fakes.stringOptional();
   });
 
   test('success', () => {
