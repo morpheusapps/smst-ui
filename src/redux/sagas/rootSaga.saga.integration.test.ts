@@ -37,7 +37,7 @@ describe('rootSaga integration tests', () => {
         .silentRun());
   });
 
-  describe('Login', () => {
+  describe('Confirm Login', () => {
     let token: string;
 
     beforeEach(() => {
