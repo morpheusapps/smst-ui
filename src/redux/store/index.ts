@@ -1,1 +1,3 @@
-export { store } from './store';
+import { configureStore } from './store';
+
+export const store = configureStore();

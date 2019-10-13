@@ -5,6 +5,8 @@ import { FakeApiCallResponse } from '../../../../test-utils/FakeApiCallResponse'
 import { SaveProfile, ThrowGetSessionError } from '../../actions';
 import { Fakes } from '../../../../test-utils/Fakes';
 
+jest.mock('../../../api');
+
 describe('getSessionSaga', () => {
   let profile: string | undefined;
 

@@ -47,7 +47,7 @@ export enum HttpStatus {
   HTTP_VERSION_NOT_SUPPORTED = 505
 }
 
-export interface ApiCallResponse<T = any> {
+export interface ApiCallResponse<T = Record<string, any>> {
   status: HttpStatus;
   data: T;
 }

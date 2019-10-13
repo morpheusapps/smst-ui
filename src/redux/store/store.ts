@@ -4,7 +4,7 @@ import { rootReducer, SemesterionStates } from '../reducers';
 import { rootSaga } from '../sagas';
 import { sagaMiddleware } from '../middlewares';
 
-const configureStore = (): Store<SemesterionStates> => {
+export const configureStore = (): Store<SemesterionStates> => {
   const store = createStore(
     rootReducer,
     composeWithDevTools(applyMiddleware(sagaMiddleware))
@@ -12,5 +12,3 @@ const configureStore = (): Store<SemesterionStates> => {
   sagaMiddleware.run(rootSaga);
   return store;
 };
-
-export const store = configureStore();
