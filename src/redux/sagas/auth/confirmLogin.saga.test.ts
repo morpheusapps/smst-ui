@@ -4,8 +4,8 @@ import * as API from '../../../api';
 import { FakeApiCallResponse } from '../../../../test-utils/FakeApiCallResponse';
 import {
   ConfirmLogin,
-  GetSession,
-  ThrowConfirmLoginError
+  ThrowConfirmLoginError,
+  SaveProfile
 } from '../../actions';
 import { Fakes } from '../../../../test-utils/Fakes';
 
@@ -19,11 +19,13 @@ describe('confirmLoginSaga', () => {
   });
 
   test('success', () => {
+    const profile = Fakes.string();
+
     testSaga(confirmLoginSaga, ConfirmLogin(token))
       .next()
       .call(API.ConfirmLoginApi, token)
-      .next(FakeApiCallResponse())
-      .put(GetSession())
+      .next(FakeApiCallResponse({ data: { profile } }))
+      .put(SaveProfile(profile))
       .next()
       .isDone();
   });

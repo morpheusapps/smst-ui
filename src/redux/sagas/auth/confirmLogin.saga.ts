@@ -1,17 +1,22 @@
 import { call, put, takeLatest } from 'redux-saga/effects';
-import { ConfirmLoginApi } from '../../../api';
+import { ConfirmLoginApi, ApiCallResponse } from '../../../api';
 import { AuthActionTypes } from '../../actionTypes';
 import {
-  GetSession,
   ConfirmLoginAction,
-  ThrowConfirmLoginError
+  ThrowConfirmLoginError,
+  SaveProfile
 } from '../../actions';
 
 export function* confirmLoginSaga(action: ConfirmLoginAction) {
   try {
-    yield call(ConfirmLoginApi, action.payload.token);
+    const {
+      data: { profile }
+    }: ApiCallResponse<{ profile: string }> = yield call(
+      ConfirmLoginApi,
+      action.payload.token
+    );
 
-    yield put(GetSession());
+    yield put(SaveProfile(profile));
   } catch (e) {
     yield put(ThrowConfirmLoginError());
   }

@@ -6,7 +6,9 @@ import {
   RemoveProfile,
   ConfirmLogin,
   ThrowConfirmLoginError,
-  GetSession
+  Logout,
+  ThrowLogoutError,
+  ThrowGetSessionError
 } from '../../actions';
 import { AuthAction } from './AuthAction';
 
@@ -64,9 +66,9 @@ describe('authReducer', () => {
       expect(state).toEqual(initialState);
     };
 
-    test('GET_SESSION', () => defaultAssertion(GetSession()));
-    test('LOGOUT', () => defaultAssertion(GetSession()));
-    test('THROW_LOGOUT_ERROR', () => defaultAssertion(GetSession()));
-    test('THROW_GET_SESSION_ERROR', () => defaultAssertion(GetSession()));
+    test('LOGOUT', () => defaultAssertion(Logout()));
+    test('THROW_LOGOUT_ERROR', () => defaultAssertion(ThrowLogoutError()));
+    test('THROW_GET_SESSION_ERROR', () =>
+      defaultAssertion(ThrowGetSessionError()));
   });
 });

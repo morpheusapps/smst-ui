@@ -1,6 +1,5 @@
 import {
   ConfirmLoginAction,
-  GetSessionAction,
   LogoutAction,
   SaveProfileAction,
   RemoveProfileAction,
@@ -12,7 +11,6 @@ import {
 export type AuthAction =
   | ConfirmLoginAction
   | ThrowConfirmLoginErrorAction
-  | GetSessionAction
   | ThrowGetSessionErrorAction
   | LogoutAction
   | ThrowLogoutErrorAction

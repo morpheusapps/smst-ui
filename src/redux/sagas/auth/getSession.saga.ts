@@ -1,6 +1,5 @@
-import { call, put, takeLatest } from 'redux-saga/effects';
+import { call, put } from 'redux-saga/effects';
 import { GetSessionApi, ApiCallResponse } from '../../../api';
-import { AuthActionTypes } from '../../actionTypes';
 import { SaveProfile, ThrowGetSessionError } from '../../actions';
 
 export function* getSessionSaga() {
@@ -13,8 +12,4 @@ export function* getSessionSaga() {
   } catch (e) {
     yield put(ThrowGetSessionError());
   }
-}
-
-export function* watchGetSessionSaga() {
-  yield takeLatest(AuthActionTypes.GET_SESSION, getSessionSaga);
 }

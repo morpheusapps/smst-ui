@@ -48,33 +48,22 @@ describe('rootSaga integration tests', () => {
       expectSaga(rootSaga)
         .provide([
           [
-            matchers.call.fn(API.GetSessionApi),
+            matchers.call.fn(API.ConfirmLoginApi),
             FakeApiCallResponse({ data: { profile } })
           ]
         ])
         .call(API.ConfirmLoginApi, token)
-        .put(Actions.GetSession())
         .put(Actions.SaveProfile(profile))
         .dispatch(Actions.ConfirmLogin(token))
         .silentRun());
 
-    test('failure - confirm login api call fails', () =>
+    test('failure', () =>
       expectSaga(rootSaga)
         .provide([
           [matchers.call.fn(API.ConfirmLoginApi), throwError(new Error())]
         ])
-        .not.put(Actions.GetSession())
+        .not.put(Actions.SaveProfile(profile))
         .put(Actions.ThrowConfirmLoginError())
-        .dispatch(Actions.ConfirmLogin(token))
-        .silentRun());
-
-    test('failure - get session api call fails', () =>
-      expectSaga(rootSaga)
-        .provide([
-          [matchers.call.fn(API.GetSessionApi), throwError(new Error())]
-        ])
-        .put(Actions.GetSession())
-        .put(Actions.ThrowGetSessionError())
         .dispatch(Actions.ConfirmLogin(token))
         .silentRun());
   });

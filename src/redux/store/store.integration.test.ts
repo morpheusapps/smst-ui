@@ -18,6 +18,11 @@ describe('store integration tests', () => {
       FakeApiCallResponse({ data: { profile } })
     );
 
+  const mockConfirmLoginApi = ({ profile }: { profile: string }) =>
+    mockedApi.ConfirmLoginApi.mockImplementation(() =>
+      FakeApiCallResponse({ data: { profile } })
+    );
+
   beforeEach(() => {
     mockedApi = API as jest.Mocked<typeof API>;
     mockGetSessionApi({ profile: undefined });
@@ -82,7 +87,7 @@ describe('store integration tests', () => {
     test('success', () => {
       const profile = Fakes.string();
 
-      mockGetSessionApi({ profile });
+      mockConfirmLoginApi({ profile });
 
       store.dispatch(Actions.ConfirmLogin(token));
 
@@ -94,7 +99,7 @@ describe('store integration tests', () => {
       });
     });
 
-    test('failure - confirm login api call fails', () => {
+    test('failure', () => {
       mockedApi.ConfirmLoginApi.mockImplementation(() => {
         throw new Error();
       });
@@ -109,21 +114,6 @@ describe('store integration tests', () => {
           loginError: UserErrorMessages.AUTH.CONFIRM_LOGIN_ERROR
         },
         alert: {}
-      });
-    });
-
-    test('failure - get session api call fails', () => {
-      mockedApi.GetSessionApi.mockImplementation(() => {
-        throw new Error();
-      });
-
-      store.dispatch(Actions.ConfirmLogin(token));
-
-      const state = store.getState();
-
-      expect(state).toEqual({
-        auth: { profile: undefined, loginError: undefined },
-        alert: { message: UserErrorMessages.AUTH.GET_SESSION_ERROR }
       });
     });
   });
