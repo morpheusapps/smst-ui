@@ -69,7 +69,9 @@
     "build": "react-scripts build",
     "lint": "eslint . --ext .ts --fix",
     "test": "jest --runInBand --watch",
-    "test:coverage": "jest"
+    "test:integration": "jest --runInBand -t=integration",
+    "test:all": "jest --runInBand",
+    "test:coverage": "jest --runInBand --coverage"
   },
   "jest": {
     "setupFiles": [
