@@ -1,8 +1,10 @@
 import React, { useEffect, useCallback } from 'react';
-import { useLocation } from 'react-router-dom';
+import { useLocation, Redirect } from 'react-router-dom';
 import qs from 'qs';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { ConfirmLogin } from '../../redux';
+import { isConfirmLoginFailedSelector } from '../../selectors';
+import { RoutesPaths } from '../../const/RoutesPaths';
 
 export const ConfirmationPage = () => {
   const dispatch = useDispatch();
@@ -13,6 +15,8 @@ export const ConfirmationPage = () => {
 
   const location = useLocation();
 
+  const isConfirmLoginFailed = useSelector(isConfirmLoginFailedSelector);
+
   useEffect((): void => {
     const { token }: { token?: string } = qs.parse(location.search, {
       ignoreQueryPrefix: true
@@ -20,5 +24,9 @@ export const ConfirmationPage = () => {
     confirmLogin(token || '');
   }, [confirmLogin, location.search]);
 
-  return <>logging in... </>;
+  return isConfirmLoginFailed ? (
+    <Redirect to={RoutesPaths.LOGIN} />
+  ) : (
+    <div>logging in... </div>
+  );
 };
