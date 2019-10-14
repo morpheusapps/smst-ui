@@ -1,7 +1,7 @@
 import React, { useCallback } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
+import { Button } from 'smst-design-system';
 import { SemesterionStates, Logout } from '../../redux';
-import { Button } from '../Button';
 
 export const HomePage = () => {
   const email = useSelector(({ auth }: SemesterionStates) => auth.profile);
