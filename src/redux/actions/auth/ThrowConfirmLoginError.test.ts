@@ -3,9 +3,9 @@ import { AuthActionTypes } from '../../actionTypes';
 import { UserErrorMessages } from '../../../const/UserErrorMessages';
 
 test('ThrowConfirmLoginError', () => {
-  const confirmLoginAction = ThrowConfirmLoginError();
+  const throwConfirmLoginErrorAction = ThrowConfirmLoginError();
 
-  expect(confirmLoginAction).toEqual({
+  expect(throwConfirmLoginErrorAction).toEqual({
     type: AuthActionTypes.THROW_CONFIRM_LOGIN_ERROR,
     payload: { loginError: UserErrorMessages.AUTH.CONFIRM_LOGIN_ERROR }
   });
