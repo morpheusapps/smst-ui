@@ -93,6 +93,14 @@
     ],
     "roots": [
       "<rootDir>/src"
+    ],
+    "collectCoverageFrom": [
+      "src/redux/**/*.ts",
+      "src/components/**/*.tsx",
+      "src/components/**/*.ts",
+      "src/selectors/**/*.ts",
+      "src/utils/**/*.ts",
+      "src/domain/**/*.ts"
     ]
   },
   "lint-staged": {
