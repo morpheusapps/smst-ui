@@ -4,7 +4,13 @@
     "ecmaVersion": 2018,
     "sourceType": "module"
   },
-  "plugins": ["@typescript-eslint", "promise", "standard", "jest"],
+  "plugins": [
+    "@typescript-eslint",
+    "promise",
+    "standard",
+    "jest",
+    "react-hooks"
+  ],
   "extends": [
     "airbnb-base",
     "standard",
@@ -58,11 +64,13 @@
     "implicit-arrow-linebreak": "off",
     "operator-linebreak": "warn",
     "function-paren-newline": "off",
-    "@typescript-eslint/no-explicit-any": "off"
+    "@typescript-eslint/no-explicit-any": "off",
+    "react-hooks/rules-of-hooks": "error",
+    "react-hooks/exhaustive-deps": "warn"
   },
   "overrides": [
     {
-      "files": ["*.saga.ts","*.tsx", "*.test.tsx", "*.test.ts"],
+      "files": ["*.saga.ts", "*.tsx", "*.test.tsx", "*.test.ts"],
       "rules": {
         "@typescript-eslint/explicit-function-return-type": "off"
       }

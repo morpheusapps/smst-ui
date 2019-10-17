@@ -4254,6 +4254,11 @@ eslint-plugin-react-hooks@^1.6.1:
   resolved "https://registry.yarnpkg.com/repository/eslint-plugin-react-hooks/-/eslint-plugin-react-hooks-1.7.0.tgz#6210b6d5a37205f0b92858f895a4e827020a7d04"
   integrity sha512-iXTCFcOmlWvw4+TOE8CLWj6yX1GwzT0Y6cUfHHZqWnSk144VmVIRcVGtUAzrLES7C798lmvnt02C7rxaOX1HNA==
 
+eslint-plugin-react-hooks@^2.1.2:
+  version "2.1.2"
+  resolved "https://registry.npmjs.org/eslint-plugin-react-hooks/-/eslint-plugin-react-hooks-2.1.2.tgz#1358d2acb2c5e02b7e90c37e611ac258a488e3a7"
+  integrity sha512-ZR+AyesAUGxJAyTFlF3MbzeVHAcQTFQt1fFVe5o0dzY/HFoj1dgQDMoIkiM+ltN/HhlHBYX4JpJwYonjxsyQMA==
+
 eslint-plugin-react@7.14.3:
   version "7.14.3"
   resolved "https://registry.yarnpkg.com/repository/eslint-plugin-react/-/eslint-plugin-react-7.14.3.tgz#911030dd7e98ba49e1b2208599571846a66bdf13"
@@ -10160,10 +10165,10 @@ slice-ansi@^2.1.0:
     astral-regex "^1.0.0"
     is-fullwidth-code-point "^2.0.0"
 
-smst-design-system@^0.0.5:
-  version "0.0.5"
-  resolved "https://registry.npmjs.org/smst-design-system/-/smst-design-system-0.0.5.tgz#dfa84705a457fdcbb1fc568d52a3e473056a5554"
-  integrity sha512-mziu2yDhd/Tw/Lkm+6kCXNh3iVKb1elWtmgJZNhqWUgEt4WaNRwf+bsZXjlfTtNfB3cF6XAHchhd/MKaT1MozA==
+smst-design-system@^0.0.7:
+  version "0.0.7"
+  resolved "https://registry.npmjs.org/smst-design-system/-/smst-design-system-0.0.7.tgz#0da85450c978bd850af89f92cb543cf2997f7a2f"
+  integrity sha512-zBIndL2OH/tiDcC559Byshu6WKtvgeq3XJwhmU8bE+cpZ/JQhC738s+sX5uW21K6323jqYpj0Uzzf9StLzx0+A==
   dependencies:
     react "^16.10.1"
     react-dom "^16.10.1"
