@@ -3,6 +3,8 @@
   "version": "0.1.0",
   "private": true,
   "devDependencies": {
+    "@testing-library/jest-dom": "^4.1.2",
+    "@testing-library/react": "^9.3.0",
     "@types/enzyme": "^3.10.2",
     "@types/enzyme-adapter-react-16": "^1.0.5",
     "@types/faker": "^4.1.5",
@@ -54,7 +56,7 @@
     "redux": "^4.0.4",
     "redux-saga": "^1.1.1",
     "reselect": "^4.0.0",
-    "smst-design-system": "^1.0.0",
+    "smst-design-system": "^1.0.1",
     "styled-components": "^4.4.0"
   },
   "proxy": "http://localhost:8000",
