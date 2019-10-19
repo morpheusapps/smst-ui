@@ -10165,14 +10165,10 @@ slice-ansi@^2.1.0:
     astral-regex "^1.0.0"
     is-fullwidth-code-point "^2.0.0"
 
-smst-design-system@^0.0.7:
-  version "0.0.7"
-  resolved "https://registry.npmjs.org/smst-design-system/-/smst-design-system-0.0.7.tgz#0da85450c978bd850af89f92cb543cf2997f7a2f"
-  integrity sha512-zBIndL2OH/tiDcC559Byshu6WKtvgeq3XJwhmU8bE+cpZ/JQhC738s+sX5uW21K6323jqYpj0Uzzf9StLzx0+A==
-  dependencies:
-    react "^16.10.1"
-    react-dom "^16.10.1"
-    styled-components "^4.4.0"
+smst-design-system@^0.0.11:
+  version "0.0.11"
+  resolved "https://registry.npmjs.org/smst-design-system/-/smst-design-system-0.0.11.tgz#c1c6ba4fead0857abef115ffa534351992948011"
+  integrity sha512-T136tNLXx2R4rSSw1ZzIrb2LfD/lnOyXNJNKBkiKFEzwXjFbT1tY5akJqAjXeA6HY+GiN/fz9WnYzO81Kli6yQ==
 
 snapdragon-node@^2.0.1:
   version "2.1.1"
