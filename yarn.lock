@@ -7416,6 +7416,11 @@ moo@^0.4.3:
   resolved "https://registry.npmjs.org/moo/-/moo-0.4.3.tgz#3f847a26f31cf625a956a87f2b10fbc013bfd10e"
   integrity sha512-gFD2xGCl8YFgGHsqJ9NKRVdwlioeW3mI1iqfLNYQOv0+6JRwG58Zk9DIGQgyIaffSYaO1xsKnMaYzzNr1KyIAw==
 
+morpheusapps-common-ui@^1.0.0:
+  version "1.0.0"
+  resolved "https://registry.npmjs.org/morpheusapps-common-ui/-/morpheusapps-common-ui-1.0.0.tgz#6580de51224c76622eeced1cca34a5fd6475db9f"
+  integrity sha512-1hHGyPfLvc0slZCOM/2P56QLKcU87/Rkcv2v9Z6sOEnRjL3/7UGDrCh8EBblxkd+uZ1+CqwXqD3i0orU+N5IbQ==
+
 move-concurrently@^1.0.1:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/repository/move-concurrently/-/move-concurrently-1.0.1.tgz#be2c005fda32e0b29af1f05d7c4b33214c701f92"

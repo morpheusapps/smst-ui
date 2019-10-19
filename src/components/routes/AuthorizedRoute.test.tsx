@@ -1,9 +1,9 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 import * as reactRedux from 'react-redux';
+import { ProtectedRoute } from 'morpheusapps-common-ui';
 import * as selectors from '../../selectors';
 import { AuthorizedRoute } from './AuthorizedRoute';
-import { ProtectedRoute } from './ProtectedRoute';
 import { RoutesPaths } from '../../const/RoutesPaths';
 
 jest.mock('react-redux');
