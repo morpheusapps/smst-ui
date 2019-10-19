@@ -19,9 +19,6 @@
     "@typescript-eslint/eslint-plugin": "^1.13.0",
     "@typescript-eslint/experimental-utils": "^1.11.0",
     "@typescript-eslint/parser": "^1.13.0",
-    "enzyme": "^3.10.0",
-    "enzyme-adapter-react-16": "^1.15.0",
-    "enzyme-to-json": "^3.4.2",
     "eslint": "^6.1.0",
     "eslint-config-airbnb-base": "^13.1.0",
     "eslint-config-prettier": "^6.0.0",
@@ -73,17 +70,6 @@
     "test:coverage": "jest --runInBand --coverage"
   },
   "jest": {
-    "globals": {
-      "ts-jest": {
-        "diagnostics": false
-      }
-    },
-    "setupFiles": [
-      "<rootDir>/test-utils/enzymeSetup.ts"
-    ],
-    "snapshotSerializers": [
-      "enzyme-to-json/serializer"
-    ],
     "transform": {
       "^.+\\.(ts|tsx)$": "ts-jest"
     },

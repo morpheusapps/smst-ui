@@ -1,10 +1,7 @@
 import React from 'react';
 import { BrowserRouter as Router, Switch } from 'react-router-dom';
-import { LoginRoute } from './components/routes/LoginRoute';
-import { AuthorizedRoute } from './components/routes/AuthorizedRoute';
-import { LoginPage } from './components/pages/LoginPage';
-import { ConfirmationPage } from './components/pages/ConfirmationPage';
-import { HomePage } from './components/pages/HomePage';
+import { LoginRoute, AuthorizedRoute } from './components/routes';
+import { LoginPage, ConfirmationPage, HomePage } from './components/pages';
 import { RoutesPaths } from './const/RoutesPaths';
 
 export const AppRoutes = () => (
