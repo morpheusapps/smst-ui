@@ -1,41 +1,79 @@
-import React from 'react';
-import { shallow } from 'enzyme';
-import { Route, Redirect } from 'react-router-dom';
-import { ProtectedRoute } from './ProtectedRoute';
+import React, { ReactNode } from 'react';
+import { useLocation, Route } from 'react-router-dom';
+import { ProtectedRoute, ProtectedRouteProps } from './ProtectedRoute';
 import { Fakes } from '../../../test-utils/Fakes';
+import { renderWithRouter } from '../../../test-utils/renderWithRouter';
 
-jest.mock('react-redux');
+const TestRoutes = ({
+  protectedRoute,
+  failurePath,
+  failureText
+}: {
+  protectedRoute: ReactNode;
+  failurePath: string;
+  failureText: string;
+}) => (
+  <>
+    {protectedRoute}
+    <Route exact path={failurePath}>
+      {failureText}
+    </Route>
+  </>
+);
+
+const LocationDisplay = () => <div>{useLocation().pathname}</div>;
 
 describe('<ProtectedRoute>', () => {
-  const children = <div id="child" />;
-  test('allowed', () => {
-    const isAllowed = true;
-    const failurePath = Fakes.string();
+  let props: ProtectedRouteProps;
+  let route: string;
+  let failureText: string;
 
-    const wrapper = shallow(
-      <ProtectedRoute isAllowed={isAllowed} failurePath={failurePath}>
-        {children}
+  beforeEach(() => {
+    props = {
+      isAllowed: Fakes.boolean(),
+      failurePath: Fakes.route(),
+      exact: true
+    };
+
+    route = Fakes.route();
+    failureText = Fakes.string();
+  });
+
+  test('allowed', () => {
+    const protectedRoute = (
+      <ProtectedRoute {...props} exact path={route} isAllowed>
+        <LocationDisplay />
       </ProtectedRoute>
     );
 
-    const route = wrapper.find(Route);
-    expect(route).toHaveLength(1);
-    expect(route.props()).toEqual({ children });
+    const { getByText } = renderWithRouter(
+      <TestRoutes
+        protectedRoute={protectedRoute}
+        failurePath={props.failurePath}
+        failureText={failureText}
+      />,
+      { route }
+    );
+
+    expect(getByText(route)).toBeDefined();
   });
 
   test('not allowed', () => {
-    const isAllowed = false;
-    const failurePath = Fakes.string();
-
-    const wrapper = shallow(
-      <ProtectedRoute isAllowed={isAllowed} failurePath={failurePath}>
-        {children}
+    const protectedRoute = (
+      <ProtectedRoute {...props} exact path={route} isAllowed={false}>
+        <LocationDisplay />
       </ProtectedRoute>
     );
 
-    const redirect = wrapper.find(Redirect);
+    const { getByText } = renderWithRouter(
+      <TestRoutes
+        protectedRoute={protectedRoute}
+        failurePath={props.failurePath}
+        failureText={failureText}
+      />,
+      { route }
+    );
 
-    expect(redirect).toHaveLength(1);
-    expect(redirect.props()).toEqual({ to: failurePath });
+    expect(getByText(failureText)).toBeDefined();
   });
 });

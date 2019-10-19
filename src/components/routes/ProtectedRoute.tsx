@@ -2,7 +2,7 @@ import React from 'react';
 import { Redirect, Route, RouteProps } from 'react-router-dom';
 import { ContainerProps } from '../types/ContainerProps';
 
-type ProtectedRouteProps = RouteProps &
+export type ProtectedRouteProps = RouteProps &
   ContainerProps & {
     isAllowed: boolean;
     failurePath: string;
