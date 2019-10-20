@@ -3,7 +3,7 @@ import { FakeSemesterionStates } from '../../../test-utils/FakeState/FakeSemeste
 import { FakeAuthState } from '../../../test-utils/FakeState/FakeAuthState';
 import { Fakes } from '../../../test-utils/Fakes';
 
-describe('isLoggedSelector', () => {
+describe('isConfirmLoginFailedSelector', () => {
   test('Confirm Login Success', () => {
     const authStateProp = {
       auth: FakeAuthState({ loginError: undefined })

@@ -3,7 +3,7 @@ import { FakeSemesterionStates } from '../../../test-utils/FakeState/FakeSemeste
 import { FakeAuthState } from '../../../test-utils/FakeState/FakeAuthState';
 import { Fakes } from '../../../test-utils/Fakes';
 
-describe('isLoggedSelector', () => {
+describe('isProfileFetchedSelector', () => {
   test('profile exist and fetched', () => {
     const authStateProp = { auth: FakeAuthState({ profile: Fakes.string() }) };
     const state = FakeSemesterionStates(authStateProp);

@@ -3,9 +3,9 @@ import { useLocation, Route } from 'react-router-dom';
 import { AuthorizedRoute } from './AuthorizedRoute';
 import { RoutesPaths } from '../../../const/RoutesPaths';
 import { renderWithReduxAndRouter } from '../../../../test-utils/renderWithReduxAndRouter';
-import { Fakes } from '../../../../test-utils/Fakes';
 import { FakeSemesterionStates } from '../../../../test-utils/FakeState/FakeSemesterionStates';
 import { FakeAuthState } from '../../../../test-utils/FakeState/FakeAuthState';
+import { Fakes } from '../../../../test-utils/Fakes';
 
 const TestRoutes = ({ route }: { route: string }) => (
   <>
