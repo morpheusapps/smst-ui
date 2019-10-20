@@ -6,18 +6,27 @@ import {
   StyledGoogleAuthButton
 } from './SignInForm.styled';
 import { SignInError } from './SignInError';
-import { confirmLoginErrorSelector } from '../../../selectors';
+import { TextPerLanguage } from './SignInForm.text';
+import {
+  confirmLoginErrorSelector,
+  languageSelector
+} from '../../../selectors';
+import { LanguageProps } from '../../types/LanguageProps';
+
+export type SignInFormProps = LanguageProps;
 
 export const SignInForm = () => {
   const confirmLoginError = useSelector(confirmLoginErrorSelector);
+  const language = useSelector(languageSelector);
 
   return (
     <div>
       <SignInFormLayout>
-        <SignInHeader>Sign In To Semesterion</SignInHeader>
+        <SignInHeader>{TextPerLanguage[language]}</SignInHeader>
         <div>
           <StyledGoogleAuthButton
             url={`${process.env.REACT_APP_BACKEND_AUTH}/api/auth/google`}
+            language={language}
           />
         </div>
       </SignInFormLayout>

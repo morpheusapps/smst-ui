@@ -1,16 +1,13 @@
 import { SemesterionStates } from '../../src/redux';
-import { FakeAuthState, FakeAuthStateProps } from './FakeAuthState';
-import { FakeAlertStateProps, FakeAlertState } from './FakeAlertState';
-
-interface FakeSemesterionStatesProps {
-  auth?: FakeAuthStateProps;
-  alert?: FakeAlertStateProps;
-}
+import { FakeAuthState } from './FakeAuthState';
+import { FakeAlertState } from './FakeAlertState';
+import { FakeLanguageState } from './FakeLanguageState';
 
 export const FakeSemesterionStates = (
-  props?: FakeSemesterionStatesProps
+  props?: Partial<SemesterionStates>
 ): SemesterionStates => ({
   auth: FakeAuthState(props && props.auth),
   alert: FakeAlertState(props && props.alert),
+  language: FakeLanguageState(props && props.language),
   ...props
 });

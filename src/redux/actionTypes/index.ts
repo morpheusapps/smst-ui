@@ -3,3 +3,4 @@ export enum GlobalActionTypes {
 }
 
 export * from './AuthActionTypes';
+export * from './LanguageActionTypes';

@@ -36,13 +36,14 @@ describe('store integration tests', () => {
     );
   });
 
-  describe('init', () => {
+  describe('Init', () => {
     test('profile not exist', () => {
       const state = store.getState();
 
       expect(state).toEqual({
         auth: { profile: undefined },
-        alert: {}
+        alert: {},
+        language: { language: 'english' }
       });
     });
 
@@ -56,7 +57,8 @@ describe('store integration tests', () => {
 
       expect(state).toEqual({
         auth: { profile },
-        alert: {}
+        alert: {},
+        language: { language: 'english' }
       });
     });
 
@@ -72,7 +74,8 @@ describe('store integration tests', () => {
         auth: { profile: null },
         alert: {
           message: UserErrorMessages.AUTH.GET_SESSION_ERROR
-        }
+        },
+        language: { language: 'english' }
       });
     });
   });
@@ -95,7 +98,8 @@ describe('store integration tests', () => {
 
       expect(state).toEqual({
         auth: { profile },
-        alert: {}
+        alert: {},
+        language: { language: 'english' }
       });
     });
 
@@ -113,7 +117,8 @@ describe('store integration tests', () => {
           profile: undefined,
           loginError: UserErrorMessages.AUTH.CONFIRM_LOGIN_ERROR
         },
-        alert: {}
+        alert: {},
+        language: { language: 'english' }
       });
     });
   });
@@ -126,7 +131,8 @@ describe('store integration tests', () => {
 
       expect(state).toEqual({
         auth: { profile: undefined },
-        alert: {}
+        alert: {},
+        language: { language: 'english' }
       });
     });
     test('failure', () => {
@@ -140,8 +146,22 @@ describe('store integration tests', () => {
 
       expect(state).toEqual({
         auth: { profile: undefined },
-        alert: { message: UserErrorMessages.AUTH.LOGOUT_ERROR }
+        alert: { message: UserErrorMessages.AUTH.LOGOUT_ERROR },
+        language: { language: 'english' }
       });
+    });
+  });
+
+  test('Change Language', () => {
+    const language = Fakes.language();
+    store.dispatch(Actions.ChangeLanguage(language));
+
+    const state = store.getState();
+
+    expect(state).toEqual({
+      auth: {},
+      alert: {},
+      language: { language }
     });
   });
 });
