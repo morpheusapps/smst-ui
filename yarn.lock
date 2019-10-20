@@ -9972,10 +9972,10 @@ slice-ansi@^2.1.0:
     astral-regex "^1.0.0"
     is-fullwidth-code-point "^2.0.0"
 
-smst-design-system@^1.0.1:
-  version "1.0.1"
-  resolved "https://registry.npmjs.org/smst-design-system/-/smst-design-system-1.0.1.tgz#5ca33170538568ddc9bcebe3edea8a939ebd05de"
-  integrity sha512-4wFbqwvmBtp1GoOV1yLsWn8f2vftLqtpjLAfkd7LDELzFIeB/T4Ebu6wZHS/pm+uG7JwrMeXUKlIRo33PukAQQ==
+smst-design-system@^1.1.0:
+  version "1.1.0"
+  resolved "https://registry.npmjs.org/smst-design-system/-/smst-design-system-1.1.0.tgz#abc80f2ed7b9aeddf3d861c2e4ef2ef5f7c7bc45"
+  integrity sha512-kxSlYbTNza2/zuTO1yaq6itvIdOJ78b1SSaISKolnohY/CocOENKvGHaKzIs8HB6yJzGRWoa/mkQ5xD3THNDag==
 
 snapdragon-node@^2.0.1:
   version "2.1.1"
