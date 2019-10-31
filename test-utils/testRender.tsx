@@ -8,7 +8,7 @@ import { FakeSemesterionStates } from './FakeState/FakeSemesterionStates';
 import { rootReducer, SemesterionStates } from '../src/redux/reducers';
 import { Fakes } from './Fakes';
 
-export const renderWithReduxAndRouter = (
+export const testRender = (
   component: React.ReactElement,
   {
     route = Fakes.route(),
@@ -27,6 +27,7 @@ export const renderWithReduxAndRouter = (
         <Router history={history}>{component}</Router>
       </Provider>
     ),
-    store
+    store,
+    history
   };
 };

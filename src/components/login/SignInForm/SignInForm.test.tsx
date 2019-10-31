@@ -1,7 +1,7 @@
 import React from 'react';
 import { SignInForm } from './SignInForm';
 import { TextPerLanguage } from './SignInForm.text';
-import { renderWithRedux } from '../../../../test-utils/renderWithRedux';
+import { testRender } from '../../../../test-utils/testRender';
 import { FakeSemesterionStates } from '../../../../test-utils/FakeState/FakeSemesterionStates';
 import { FakeAuthState } from '../../../../test-utils/FakeState/FakeAuthState';
 import { Fakes } from '../../../../test-utils/Fakes';
@@ -9,7 +9,7 @@ import { FakeLanguageState } from '../../../../test-utils/FakeState/FakeLanguage
 
 describe('<SignInForm>', () => {
   test('google login button exist', () => {
-    const { getByTestId } = renderWithRedux(<SignInForm />, {
+    const { getByTestId } = testRender(<SignInForm />, {
       initialState: FakeSemesterionStates()
     });
 
@@ -22,7 +22,7 @@ describe('<SignInForm>', () => {
         auth: FakeAuthState({ loginError: undefined })
       });
 
-      const { queryByTestId, getByTestId } = renderWithRedux(<SignInForm />, {
+      const { queryByTestId, getByTestId } = testRender(<SignInForm />, {
         initialState
       });
 
@@ -36,7 +36,7 @@ describe('<SignInForm>', () => {
         auth: FakeAuthState({ loginError })
       });
 
-      const { getByTestId, getByText } = renderWithRedux(<SignInForm />, {
+      const { getByTestId, getByText } = testRender(<SignInForm />, {
         initialState
       });
 
@@ -51,7 +51,7 @@ describe('<SignInForm>', () => {
         language: FakeLanguageState({ language: 'english' })
       });
 
-      const { getByText } = renderWithRedux(<SignInForm />, {
+      const { getByText } = testRender(<SignInForm />, {
         initialState
       });
 
@@ -63,7 +63,7 @@ describe('<SignInForm>', () => {
         language: FakeLanguageState({ language: 'hebrew' })
       });
 
-      const { getByText } = renderWithRedux(<SignInForm />, {
+      const { getByText } = testRender(<SignInForm />, {
         initialState
       });
 
