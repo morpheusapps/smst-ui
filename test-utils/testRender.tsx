@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { ReactElement } from 'react';
 import { createStore } from 'redux';
 import { Provider } from 'react-redux';
 import { Router } from 'react-router-dom';
@@ -9,7 +9,7 @@ import { rootReducer, SemesterionStates } from '../src/redux/reducers';
 import { Fakes } from './Fakes';
 
 export const testRender = (
-  component: React.ReactElement,
+  component: ReactElement,
   {
     route = Fakes.route(),
     history = createMemoryHistory({ initialEntries: [route] }),
